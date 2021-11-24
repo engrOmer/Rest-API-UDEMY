@@ -1,5 +1,6 @@
 package com.in28minutes.rest.webservices.restwebservices.user;
 
+import org.apache.juli.logging.Log;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -22,7 +23,8 @@ public class UserResource {
     @GetMapping(path = "/getUsers/{id}")
     public List<User> getUser(@PathVariable int id) {
         List<User> users = UserDaoService.getUserDaoServiceInstance().searchUser(id);
-        if (users != null) {
+        System.out.println("user"+users);
+        if (users.size() != 0) {
             return users;
         } else {
         throw new UserNotFoundException("id"+id);

@@ -8,18 +8,7 @@ public class RestWebServicesApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestWebServicesApplication.class, args);
-		System.out.println("" +
-				"" +
-				"" +
-				"" +
-				"omer asif");
-		if("3459226777".contains("-"))
-		{
-			System.out.println("inside");
-		}else{
-			System.out.println("inside else");
-		}
-
+		System.out.println("omer asif");
 	}
 
 
