@@ -3,6 +3,7 @@ package com.in28minutes.rest.webservices.restwebservices.user;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,4 +37,16 @@ public class UserDaoService {
     public List<User> searchUser(int id) {
         return this.users.stream().filter(user -> user.getId() == id).collect(Collectors.toList());
     }
+
+    public User deleteUser(int id) {
+        Iterator<User> iterator = users.iterator();
+        while(iterator.hasNext()){
+        User user = iterator.next();
+            if(user.getId()==id)
+            {
+                iterator.remove();
+                return user;
+            }
+        }
+        return null;}
 }

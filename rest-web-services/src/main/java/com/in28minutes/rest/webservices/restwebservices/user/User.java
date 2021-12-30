@@ -1,11 +1,17 @@
 package com.in28minutes.rest.webservices.restwebservices.user;
 
 
+import org.springframework.web.bind.annotation.PathVariable;
+
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class User {
     private int id;
+    @Size(min = 2,message = "Name should have atleast 2 characters")
     private String name;
+    @Past(message = "Birthdate must be in past")
     private Date birthDate;
 
     public int getId() {
