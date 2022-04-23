@@ -1,6 +1,7 @@
 package com.in28minutes.rest.webservices.restwebservices.user;
 
 import org.apache.juli.logging.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -16,6 +17,9 @@ public class UserResource {
    Retrieve a specific user
    Retrieve add a user
     */
+    @Autowired
+    UserRepository userRepository;
+
     @GetMapping(path = "/getUsers")
     public List<User> getUsers() {
         return UserDaoService.getUserDaoServiceInstance().findAll();

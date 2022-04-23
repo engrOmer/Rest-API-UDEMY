@@ -3,11 +3,16 @@ package com.in28minutes.rest.webservices.restwebservices.user;
 
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
-
+@Entity
 public class User {
+    @Id
+    @GeneratedValue
     private int id;
     @Size(min = 2,message = "Name should have atleast 2 characters")
     private String name;
